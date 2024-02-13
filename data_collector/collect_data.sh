@@ -1,14 +1,26 @@
 #!/bin/bash
 
+# Activation de l'environnement virtuel
 source .venv/bin/activate
 
-curl -o data.csv "https://data.cdc.gov/api/views/hfr9-rurv/rows.csv?accessType=DOWNLOAD"
+# Définir le répertoire de configuration Kaggle
+export KAGGLE_CONFIG_DIR=data_collector/.kaggle
+
+# Téléchargement de l'ensemble de données Kaggle
+kaggle datasets download -d tejpal123/human-disease-prediction-dataset
 echo "Téléchargement terminé"
 
+#Création du dossier data
 mkdir -p data
 
-# Déplacer le fichier CSV dans le répertoire "data"
-mv data.csv data/
+# Déplacement du fichier téléchargé dans le répertoire data
+mv "human-disease-prediction-dataset.zip" data/
+unzip data/human-disease-prediction-dataset.zip
+echo "Dossier dézipé"
 
-# Accorder des permissions au répertoire "data"
+mv "testing.csv" "training.csv" data/
+echo "Bases sauvegardées dans data"
+
+# Accorder des permissions au répertoire data
 chmod -R 777 data
+
