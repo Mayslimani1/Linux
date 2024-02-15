@@ -20,18 +20,23 @@ import base64
 df = pd.read_csv('/Users/nana/Documents/GitHub/Linux/data/nouvelle_base_linux.csv', sep=',')
 
 
-restaurant_title = st.text_input('Nom du restaurant', 'Nom du restaurant par défaut')
-st.write('Le nom du restaurant actuel est', restaurant_title)
-
+restaurant_title = st.text_input('Nom du restaurant')
 
 df.fillna(' ')
 st.title("Restaurant - Singapour :flag-sg:")
 type = st.multiselect(
     "Que voulez-vous manger ? :fork_and_knife:",
     df['type_food_2'].unique())
+
 livraison = st.sidebar.radio("Options de livraison :car:", df['extracted_options'].unique())
 
+st.sidebar.write(" ")
+
 with_promo = st.sidebar.checkbox("Avec offres promotionnelles")
+
+st.sidebar.write(" ")
+
+min_rating, max_rating = st.sidebar.slider('**Notes :**', min_value=0.0, max_value=5.0, value=(0.0, 5.0), step=0.1)
 
 st.sidebar.write(" ")
 st.sidebar.write("**Meilleures catégories :**")
@@ -44,23 +49,32 @@ Cafe = st.sidebar.page_link("pages/Cafe.py", label=":cake: Café & Dessert")
 Fast = st.sidebar.page_link("pages/Fast.py", label=":hamburger: Fast Food")
 Halal = st.sidebar.page_link("pages/Halal.py", label=":mosque: Halal")
 Healthy = st.sidebar.page_link("pages/Healthy.py", label=":green_salad: Healthy")
-Vegan = st.sidebar.page_link("pages/Vegan.py", label=":stuffed_flatbread: Végétarien")
 World = st.sidebar.page_link("pages/World.py", label=":earth_africa: Monde")
 
-names = df[df['type_food_2'].isin(type)]['name'].unique()
-names = df[df['extracted_options'].isin([livraison])]['name'].unique()
+if not type:
+    type = df['type_food_2'].unique()
 
+if restaurant_title:
+    df = df[df['name'] == restaurant_title]
+    
+filtered_df = df[
+    (df['type_food_2'].isin(type)) &
+    (df['extracted_options'] == livraison) &
+    (df['rating'] >= min_rating) &
+    (df['rating'] <= max_rating)
+]
+
+# Si l'option 'Avec offres promotionnelles' est cochée, filtrer les restaurants ayant des offres promotionnelles
 if with_promo:
-    names = df.dropna(subset=['promo'])
+    filtered_df = filtered_df.dropna(subset=['promo'])
 
 st.write('Propositions :')
-for name in names:
-    if name in df['name'].unique(): 
-        restaurant_data = df[df['name'] == name].iloc[0] 
-        restaurant_info = "- **{}** |  Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Note : {}".format(
-            name,
-            restaurant_data['extracted_options'],
-            restaurant_data['address'],
-            restaurant_data['delivery_cost'],
-            restaurant_data['rating'])
-        st.write(restaurant_info)
+for index, row in filtered_df.iterrows():
+    restaurant_info = "- **{}** |  Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Note : {}".format(
+        row['name'],
+        row['extracted_options'],
+        row['address'],
+        row['delivery_cost'],
+        row['rating']
+    )
+    st.write(restaurant_info)
