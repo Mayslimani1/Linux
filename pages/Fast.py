@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
+from app import add_logo
 
-df_fast_food = pd.read_csv('/Users/nana/Documents/GitHub/Linux/data/df_fast_food.csv', sep=',')
+add_logo()
+
+df_fast_food = pd.read_csv('data/df_fast_food.csv', sep=',')
 
 st.title("Porn Food :hamburger:")
 type = st.multiselect(
@@ -12,10 +15,14 @@ livraison = st.sidebar.radio("Options de livraison :car:", df_fast_food['extract
 with_promo = st.sidebar.checkbox("Avec offres promotionnelles")
 
 st.sidebar.write(" ")
+
+min_rating, max_rating = st.sidebar.slider('**Notes :**', min_value=0.0, max_value=5.0, value=(0.0, 5.0), step=0.1)
+
+st.sidebar.write(" ")
 st.sidebar.write("**Meilleures catégories :**")
 
 #pages
-acc = st.sidebar.page_link("main.py", label="Tous les restaurants", icon="🏠")
+acc = st.sidebar.page_link("app.py", label="Tous les restaurants", icon="🏠")
 Asia = st.sidebar.page_link("pages/Asia.py", label=":bento: Asiatique")
 Boisson = st.sidebar.page_link("pages/Boisson.py", label=":cocktail: Boissons")
 Cafe = st.sidebar.page_link("pages/Cafe.py", label=":cake: Café & Dessert")
