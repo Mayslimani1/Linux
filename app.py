@@ -8,37 +8,21 @@ def add_logo():
     # Charger le logo en tant que base64
     logo_base64 = base64.b64encode(open(logo_image_path, "rb").read()).decode()
 
-    # Utiliser le style CSS pour ajouter le logo centré horizontalement à la barre latérale
+    # Utiliser st.markdown pour afficher le logo centré verticalement
     st.sidebar.markdown(
         f"""
-        <style>
-            [data-testid="stSidebarNav"] {{
-                background-image: url('data:image/jpeg;base64,{logo_base64}');
-                background-repeat: no-repeat;
-                background-position: center top;  /* Centrer verticalement */
-                background-size: contain;  /* Ajuster la taille de l'image */
-                padding-top: 50px;  /* Ajuster la marge supérieure pour aligner le logo */
-                width: 150px;  /* Ajuster la largeur du conteneur du logo */
-                margin-left: auto;
-                margin-right: auto;  /* Centrer horizontalement */
-                text-align: center;  /* Centrer le texte */
-            }}
-            [data-testid="stSidebarNav"]::before {{
-                margin-top: 20px;
-                font-size: 20px;  /* Ajuster la taille de la police du texte du logo */
-            }}
-            [data-testid="stSidebarNav"] .stLink {{
-                display: none;  /* Masquer les liens générés par page_link */
-            }}
-        </style>
+        <div style='display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;'>
+            <img src='data:image/jpeg;base64,{logo_base64}' alt='Logo' style='width: auto; height: 150px;'/>
+        </div>
         """,
         unsafe_allow_html=True,
     )
 
+
 # Appeler la fonction pour ajouter le logo
 add_logo()
 
-#DF
+# DF
 df = pd.read_csv('data/new_Grab_SG_Restaurants.csv', sep=',')
 
 st.title("Restaurant - Singapour :flag-sg:")
@@ -55,7 +39,8 @@ livraison = st.sidebar.radio("Options de livraison :car:", df['extracted_options
 
 st.sidebar.write(" ")
 
-with_promo = st.sidebar.checkbox("Avec offres promotionnelles")
+# Définir with_promo au début du script
+with_promo = st.sidebar.checkbox("Avec offres promotionnelles", key="promo_checkbox")
 
 st.sidebar.write(" ")
 
@@ -64,7 +49,7 @@ min_rating, max_rating = st.sidebar.slider('**Notes :**', min_value=0.0, max_val
 st.sidebar.write(" ")
 st.sidebar.write("**Meilleures catégories :**")
 
-#pages
+# pages
 acc = st.sidebar.page_link("app.py", label="Tous les restaurants", icon="🏠")
 Asia = st.sidebar.page_link("pages/Asia.py", label=":bento: Asiatique")
 Boisson = st.sidebar.page_link("pages/Boisson.py", label=":cocktail: Boissons")
@@ -79,7 +64,7 @@ if not type:
 
 if restaurant_title:
     df = df[df['name'] == restaurant_title]
-    
+
 filtered_df = df[
     (df['type_food_2'].isin(type)) &
     (df['extracted_options'] == livraison) &
@@ -93,7 +78,7 @@ if with_promo:
 
 st.write('Propositions :')
 for index, row in filtered_df.iterrows():
-    restaurant_info = "- **{}** |  Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Note : {}".format(
+    restaurant_info = "- **{}** | Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Note : {}".format(
         row['name'],
         row['extracted_options'],
         row['address'],
