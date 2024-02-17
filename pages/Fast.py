@@ -12,11 +12,11 @@ type = st.multiselect(
     df_fast_food['type_food_2'].unique())
 livraison = st.sidebar.radio("Options de livraison :car:", df_fast_food['extracted_options'].unique())
 
-with_promo = st.sidebar.checkbox("Avec offres promotionnelles")
+with_promo = st.sidebar.checkbox("Avec offres promotionnelles", key="promo_checkbox_fast")
 
 st.sidebar.write(" ")
 
-min_rating, max_rating = st.sidebar.slider('**Notes :**', min_value=0.0, max_value=5.0, value=(0.0, 5.0), step=0.1)
+min_rating, max_rating = st.sidebar.slider('**Notes :**', min_value=0.0, max_value=5.0, value=(0.0, 5.0), step=0.1, key="rating_slider_fast")
 
 st.sidebar.write(" ")
 st.sidebar.write("**Meilleures catégories :**")
@@ -45,11 +45,12 @@ if with_promo:
 
 st.write('Propositions :')
 for index, row in filtered_df.iterrows():
-    restaurant_info = "- **{}** |  Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Note : {}".format(
+    restaurant_info = "- **{}** | Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Horaire : {} | Note : {}".format(
         row['name'],
         row['extracted_options'],
         row['address'],
         row['delivery_cost'],
+        row['displayedHours'],
         row['rating']
     )
     st.write(restaurant_info)

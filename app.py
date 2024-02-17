@@ -78,11 +78,12 @@ if with_promo:
 
 st.write('Propositions :')
 for index, row in filtered_df.iterrows():
-    restaurant_info = "- **{}** | Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Note : {}".format(
+    restaurant_info = "- **{}** | Options de livraison : {} | Adresse : {} | Coût de livraison : {} | Horaire : {} | Note : {}".format(
         row['name'],
         row['extracted_options'],
         row['address'],
         row['delivery_cost'],
+        row['displayedHours'],
         row['rating']
     )
     st.write(restaurant_info)
