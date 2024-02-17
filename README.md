@@ -21,16 +21,18 @@ Le but principal de TastePulse est de fournir aux utilisateurs une plateforme fa
 ## Installation
 
 1. Cloner le dépôt GitHub :
-   
+
+   <span class="btn" data-clipboard-target="#code" style="float: right;"></span>
+   <pre><code id="code">
    git clone https://github.com/johannaroll/Linux.git
+   </code></pre>
    
 2. Accéder au répertoire du projet :
    
-<span class="btn" data-clipboard-target="#code" style="float: right;"></span>
-
-<pre><code id="code">
-cd Linux
-</code></pre>
+   <span class="btn" data-clipboard-target="#code" style="float: right;"></span>
+   <pre><code id="code">
+   cd Linux
+   </code></pre>
 
    ## Étape préalable : Générer l'API Kaggle
 
@@ -41,20 +43,28 @@ cd Linux
    - Faites défiler jusqu'à la section API et cliquez sur "Create New API Token".
    - Cela téléchargera un fichier kaggle.json. Assurez-vous de le sauvegarder en toute sécurité.
 
-   1. Placez le fichier kaggle.json dans le répertoire `data_collector/.kaggle/` de votre projet.
+   3. Placez le fichier kaggle.json dans le répertoire `data_collector/.kaggle/` de votre projet.
 
    ##
 
-1. Installer les dépendances requises :
+3. Installer les dépendances requises :
    
+   <span class="btn" data-clipboard-target="#code" style="float: right;"></span>
+   <pre><code id="code">
    source install.sh
+   </code></pre>
+   
    
 
 ## Utilisation
 
 1. Lancer l'application en spécifiant un mot-clé de recherche :
    
+   
+   <span class="btn" data-clipboard-target="#code" style="float: right;"></span>
+   <pre><code id="code">
    webapp/bin/launch.sh
+   </code></pre>
 
 
 2. Une fois l'application lancée, vous pouvez explorer les restaurants en utilisant la barre de recherche ou en parcourant les différentes catégories alimentaires disponibles.
