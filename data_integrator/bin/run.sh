@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python data_integrator/integrator/integrator.py
+python3 data_integrator/integrator/integrator.py
