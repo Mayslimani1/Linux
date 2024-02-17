@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Activation de l'environnement virtuel
-source .venv/bin/activate
+#source .venv/bin/activate
 
 # Définir le répertoire de configuration Kaggle
 export KAGGLE_CONFIG_DIR=kaggle
