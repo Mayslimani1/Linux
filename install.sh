@@ -4,8 +4,6 @@ virtualenv venv
 
 source ./venv/bin/activate
 
-sudo apt-get install unzip
-
 #Installer kaggle
 pip install kaggle
 
