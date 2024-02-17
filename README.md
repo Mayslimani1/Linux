@@ -78,6 +78,6 @@ Le but principal de TastePulse est de fournir aux utilisateurs une plateforme fa
 
 ## Contributeurs
 
-- Johanna Roll (johannaroll)
-- Manal Jarmouni (nom_utilisateur_github)
-- Maysa Slimani (mayslimani1)
+- Johanna Roll ([johannaroll](https://github.com/johannaroll))
+- Manal Jarmouni ([jarmounimanal](https://github.com/jarmounimanal))
+- Maysa Slimani ([mayslimani1](https://github.com/mayslimani1))

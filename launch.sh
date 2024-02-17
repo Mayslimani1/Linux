@@ -12,3 +12,5 @@ echo "Data integrated"
 sleep 5
 python3 -m streamlit run app.py --server.port 8950
 echo "Application fermée"
+
+chmod +x launch.sh

@@ -23,5 +23,5 @@ mv "Grab_SG_Restaurants.csv" data/
 echo "Bases sauvegardées dans data"
 
 # Accorder des permissions au répertoire data
-chmod -R 777 data
+chmod +x data
 
