@@ -26,7 +26,7 @@ Le but principal de TastePulse est de fournir aux utilisateurs une plateforme fa
    
 2. Accéder au répertoire du projet :
    
-<span class="btn" data-clipboard-target="#code" style="float: right;">Copier</span>
+<span class="btn" data-clipboard-target="#code" style="float: right;"></span>
 
 <pre><code id="code">
 cd Linux
@@ -41,11 +41,11 @@ cd Linux
    - Faites défiler jusqu'à la section API et cliquez sur "Create New API Token".
    - Cela téléchargera un fichier kaggle.json. Assurez-vous de le sauvegarder en toute sécurité.
 
-   3. Placez le fichier kaggle.json dans le répertoire `data_collector/.kaggle/` de votre projet.
+   1. Placez le fichier kaggle.json dans le répertoire `data_collector/.kaggle/` de votre projet.
 
    ##
 
-3. Installer les dépendances requises :
+1. Installer les dépendances requises :
    
    source install.sh
    
