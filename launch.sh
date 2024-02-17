@@ -1,6 +1,6 @@
 #!/bash
 
-cp config.toml ~/.streamlit/
+cp config.toml
 
 echo "Downloading data"
 bash data_collector/collect_data.sh 

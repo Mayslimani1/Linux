@@ -2,6 +2,7 @@
 
 # Activation de l'environnement virtuel
 #source .venv/bin/activate
+pip install kaggle
 
 # Définir le répertoire de configuration Kaggle
 export KAGGLE_CONFIG_DIR=kaggle
