@@ -26,7 +26,7 @@ add_logo()
 df = pd.read_csv('data/new_Grab_SG_Restaurants.csv', sep=',')
 
 st.title("TastePulse :green_heart:")
-st.title("Restaurant - Singapour :flag-sg:")
+st.title("Restaurants - Singapour :flag-sg:")
 
 df.fillna(' ')
 restaurant_title = st.text_input('Nom du restaurant')
