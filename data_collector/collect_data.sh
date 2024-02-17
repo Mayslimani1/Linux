@@ -17,7 +17,7 @@ mkdir -p data
 
 # Déplacement du fichier téléchargé dans le répertoire data
 mv "16000-grab-restaurants-in-singapore.zip" data/
-unzip -o 16000-grab-restaurants-in-singapore.zip -d data/
+unzip data/16000-grab-restaurants-in-singapore.zip
 echo "Dossier dézipé"
 
 mv "Grab SG Restaurants.csv" "Grab_SG_Restaurants.csv"
