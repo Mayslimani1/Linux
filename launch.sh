@@ -3,7 +3,7 @@
 cp config.toml ~/.streamlit/
 
 echo "Downloading data"
-bash data_collector/run.sh 
+bash data_collector/collect_data.sh 
 echo "Data downloaded" 
 sleep 5
 echo "Integrating data" 
