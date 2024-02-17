@@ -1,5 +1,9 @@
 #!/bash
 
+python3 -m pip install pandas
+python3 -m pip install base64
+python3 -m pip install streamlit
+
 cp config.toml
 
 echo "Downloading data"
