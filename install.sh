@@ -4,6 +4,9 @@ virtualenv venv
 
 source ./venv/bin/activate
 
+#Installer kaggle
+pip install kaggle
+
 # Installer les dépendances Python via pip
 pip install -r requirements.txt
 
