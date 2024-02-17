@@ -7,6 +7,7 @@ RUN apt update && \
     python3 -m pip install virtualenv
 
 RUN mkdir -p /Linux
+WORKDIR /Linux
 
 # Copiez le reste de votre code d'application dans le conteneur
 COPY . .
