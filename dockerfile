@@ -3,9 +3,8 @@ FROM ubuntu:20.04
 
 # Copiez le fichier des dépendances et installez-les
 RUN apt update && \
-    apt-get install -y curl python3 python3-pip && \
-    python3 -m pip install virtualenv && \
-    apt-get install -y unzip
+    apt-get install -y curl python3 python3-pip unzip && \
+    python3 -m pip install virtualenv
 
 RUN mkdir -p /Linux
 WORKDIR /Linux
