@@ -25,6 +25,7 @@ add_logo()
 # DF
 df = pd.read_csv('data/new_Grab_SG_Restaurants.csv', sep=',')
 
+st.title("TastePulse :green_heart:")
 st.title("Restaurant - Singapour :flag-sg:")
 
 df.fillna(' ')
