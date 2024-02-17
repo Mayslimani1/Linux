@@ -26,7 +26,11 @@ Le but principal de TastePulse est de fournir aux utilisateurs une plateforme fa
    
 2. Accéder au répertoire du projet :
    
-   cd Linux
+<span class="btn" data-clipboard-target="#code" style="float: right;">Copier</span>
+
+<pre><code id="code">
+cd Linux
+</code></pre>
 
    ## Étape préalable : Générer l'API Kaggle
 
@@ -40,7 +44,7 @@ Le but principal de TastePulse est de fournir aux utilisateurs une plateforme fa
    3. Placez le fichier kaggle.json dans le répertoire `data_collector/.kaggle/` de votre projet.
 
    ##
-   
+
 3. Installer les dépendances requises :
    
    source install.sh
