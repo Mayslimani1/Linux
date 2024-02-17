@@ -1,18 +1,17 @@
 # Utilisez une image officielle Python 3.10 comme parent
-FROM python:3.10-slim
-
-# Définissez le répertoire de travail dans le conteneur
-# WORKDIR /app
+FROM ubuntu:20.04
 
 # Copiez le fichier des dépendances et installez-les
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN apt update && \
+    apt-get install -y curl python3 python3-pip && \
+    python3 -m pip install virtualenv
+
+RUN mkdir -p /Linux
 
 # Copiez le reste de votre code d'application dans le conteneur
 COPY . .
 
-# Exposez le port sur lequel votre application s'exécute
-EXPOSE 8000
+RUN bash install.sh
 
 # Commande pour exécuter l'application
-CMD ["bash", "-c", "bin/launch.sh", "--server.port=8000", "--server.address=0.0.0.0"]
+CMD ["bash", "launch.sh"]

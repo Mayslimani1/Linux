@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bash
 
 cp config.toml ~/.streamlit/
 
@@ -10,5 +10,5 @@ echo "Integrating data"
 bash data_integrator/bin/run.sh
 echo "Data integrated" 
 sleep 5
-bash webapp/bin/launch.sh
-echo "Application en cours"
+python3 -m streamlit run app.py --server.port 8950
+echo "Application fermée"
