@@ -4,7 +4,7 @@
 source .venv/bin/activate
 
 # Définir le répertoire de configuration Kaggle
-export KAGGLE_CONFIG_DIR=data_collector/.kaggle
+export KAGGLE_CONFIG_DIR=data_collector/kaggle
 
 # Téléchargement de l'ensemble de données Kaggle
 kaggle datasets download -d polartech/16000-grab-restaurants-in-singapore
