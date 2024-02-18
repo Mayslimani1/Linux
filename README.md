@@ -1,4 +1,4 @@
-# TastePulse
+# TastePulse 💚
 
 TastePulse est une application web qui répertorie les restaurants de Singapour, offrant aux utilisateurs la possibilité de découvrir et de rechercher différents types de cuisine en partenariat avec le service de livraison d’Asie Grab. Que ce soit pour trouver un restaurant spécifique ou pour explorer de nouvelles options dans une catégorie particulière, TastePulse vous aide à trouver les meilleurs endroits où manger à Singapour !
 
